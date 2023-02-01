@@ -7,7 +7,6 @@ var tween:Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    tween = get_tree().create_tween()
     pass # Replace with function body.
 
 
@@ -17,13 +16,12 @@ func _process(delta):
 
 func submit(text:String):
     count += 1
-    richtextlabel.add_text("{0}: {1}\n".format([count, text]))
-    var bar:VScrollBar = richtextlabel.get_v_scroll_bar()
-    print_debug("before: ",bar.max_value)
-    # なぜかこの計算処理を入れるとTweenで下までスクロールできる?
+    richtextlabel.add_text("{0}: {1}".format([count, text]))
+    richtextlabel.newline()
     richtextlabel.get_line_count()
-    print_debug("after: ",bar.max_value)
-    tween.kill()
+    var bar:VScrollBar = richtextlabel.get_v_scroll_bar()
+    if(tween != null):
+        tween.kill()
     tween = get_tree().create_tween()
     propetytween = tween.tween_property(bar, "value", bar.max_value, 0.3)
     pass
