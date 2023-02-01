@@ -17,6 +17,14 @@ script = ExtResource("1_ilhoi")
 layout_mode = 1
 offset_right = 395.0
 offset_bottom = 175.0
+text = "test
+test
+test
+test
+test
+test
+test
+"
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 1
